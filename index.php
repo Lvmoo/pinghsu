@@ -87,8 +87,13 @@ $this->need('header.php');
 						<div class="item-title">
 							<a href="<?php $this->permalink(); ?>"><?php $this->title(); ?></a>
 						</div>
-						<div class="item-meta">
-							<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"> Published on <?php $this->date('M j, Y'); ?></time> in <?php $this->category(''); ?> </a>
+						<div class="item-meta"> 
+							<?php _e('Published by'); ?> <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a>
+							<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished">
+							<?php _e('On '); ?><?php $this->date('M j, Y'); ?>
+							</time>
+							<?php _e('in '); ?><?php $this->category(''); ?> </a>
+							<?php _e('with '); ?>  <a href="<?php $this->permalink() ?>#comments"> <?php $this->commentsNum(_t(' 0 comment'), _t(' 1 comment'), _t(' %d comments')); ?></a>
 						</div>
 						<div class="item-meta-hr <?php if ($this->options->colorBgPosts == 'defaultColor'): ?> bg-deepgrey<?php elseif ($this->options->colorBgPosts == 'customColor'): ?><?php if (array_key_exists('green',unserialize($this->___fields()))): ?> bg-green<?php elseif (array_key_exists('red',unserialize($this->___fields()))): ?> bg-red<?php elseif (array_key_exists('yellow',unserialize($this->___fields()))): ?> bg-yellow<?php elseif (array_key_exists('blue',unserialize($this->___fields()))): ?> bg-blue<?php elseif (array_key_exists('purple',unserialize($this->___fields()))): ?> bg-purple<?php else : ?> bg-<?php echo randBgColor(); ?><?php endif; ?><?php endif; ?>"></div>
 						<div class="item-content">
