@@ -21,8 +21,10 @@
 		</div>
 	</div>
 	<div class="footer-meta">
+        <?php if ($this->options->useMathjax == 'able'): ?>
         <script type="text/javascript" src="https://api.lvmoo.com/hitokoto/?encode=js&charset=utf-8"></script>
         <div id="lvmoohitokoto">❝<script>lvmoohitokoto()</script>❞</div>
+        <?php endif; ?>
 		<div class="footer-container">
 			<div class="meta-item meta-copyright">
 				<div class="meta-copyright-info">
@@ -36,7 +38,7 @@
 					<div class="info-text">
                         <p><?php if($this->options->builtTime): ?>博客诞生<?php getBuildTime($this->options->builtTime); ?><?php endif; ?></p>
                         <p><?php if($this->options->icpbeian): ?>
-                            <a target="_blank" rel="noopener" href="http://www.miitbeian.gov.cn"><?php $this->options->icpbeian(); ?></a>
+                            <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn/"><?php $this->options->icpbeian(); ?></a>
                         <?php endif; ?></p>
                         <p><?php if($this->options->gajbeian): ?>
                             <a target="_blank" rel="noopener" href="<?php $this->options->gajbeianurl(); ?>"> <img src="https://cdn.lvmoo.com/gh.png" alt="国徽">  <?php $this->options->gajbeian(); ?> </a>

@@ -101,6 +101,13 @@ function themeConfig($form) {
         'disable', _t('文章Mathjax设置'), _t('默认禁止，启用则会对内容页进行数学公式渲染，仅支持 $公式$ 和 $$公式$$ '));
     $form->addInput($useMathjax);
 
+    $hitokoto = new Typecho_Widget_Helper_Form_Element_Radio('hitokoto',
+        array('able' => _t('启用'),
+            'disable' => _t('禁止'),
+        ),
+        'disable', _t('在footer开启一言'), _t('默认禁止，启用可能会出现奇怪的情况'));
+    $form->addInput($useMathjax);
+
     $GoogleAnalytics = new Typecho_Widget_Helper_Form_Element_Textarea('GoogleAnalytics', NULL, NULL, _t('Google Analytics代码'), _t('填写你从Google Analytics获取到的Universal Analytics跟踪代码，不需要script标签'));
     $form->addInput($GoogleAnalytics);
 
