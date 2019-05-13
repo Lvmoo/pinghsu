@@ -21,7 +21,7 @@
 		</div>
 	</div>
 	<div class="footer-meta">
-        <?php if ($this->options->useMathjax == 'able'): ?>
+        <?php if ($this->options->hitokoto == 'able'): ?>
         <script type="text/javascript" src="https://api.lvmoo.com/hitokoto/?encode=js&charset=utf-8"></script>
         <div id="lvmoohitokoto">❝<script>lvmoohitokoto()</script>❞</div>
         <?php endif; ?>
