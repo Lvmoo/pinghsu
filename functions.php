@@ -14,6 +14,16 @@ function themeConfig($form) {
     $searchPage = new Typecho_Widget_Helper_Form_Element_Text('searchPage', NULL, NULL, _t('搜索页地址'), _t('输入你的 Template Page of Search 的页面地址,记得带上 http:// 或 https://'));
     $form->addInput($searchPage->addRule('xssCheck', _t('请不要在链接中使用特殊字符')));
 
+    $icpbeian = new Typecho_Widget_Helper_Form_Element_Text('icpbeian', NULL, NULL, _t('工信部备案号') , _t('工信部无备案不填'));
+    $form->addInput($icpbeian);
+    $gajbeian = new Typecho_Widget_Helper_Form_Element_Text('gajbeian', NULL, NULL, _t('公安部备案号') , _t('公安部无备案不填'));
+    $form->addInput($gajbeian);
+    $gajbeianurl = new Typecho_Widget_Helper_Form_Element_Text('gajbeianurl', NULL, _t('#'), _t('公网安备链接') , _t('公安部无备案不填'));
+    $form->addInput($gajbeianurl->addRule('xssCheck', _t('请不要在链接中使用特殊字符')));
+
+    $builtTime = new Typecho_Widget_Helper_Form_Element_Text('builtTime', NULL, NULL, _t('站点运行时间') , _t('格式YYYY-MM-DD'));
+    $form->addInput($builtTime);
+
     $pjaxSet = new Typecho_Widget_Helper_Form_Element_Radio('pjaxSet',
         array('able' => _t('启用'),
             'disable' => _t('禁止'),
@@ -297,4 +307,45 @@ function compressHtml($html_source) {
 
 function seoSetting($obj){
 
+}
+
+/**
+* 网站运行时间
+*
+* @access public
+* @param mixed $arg1
+* @return array 返回类型
+*/
+function getBuildTime($builtTime) {
+    $site_create_time = strtotime($builtTime . ' 00:00:00');
+    $time = time() - $site_create_time;
+    if (is_numeric($time)) {
+        $value = array(
+            "years" => 0,
+            "days" => 0,
+            "hours" => 0,
+            "minutes" => 0,
+            "seconds" => 0,
+        );
+        if ($time >= 31556926) {
+            $value["years"] = floor($time / 31556926);
+            $time = ($time % 31556926);
+        }
+        if ($time >= 86400) {
+            $value["days"] = floor($time / 86400);
+            $time = ($time % 86400);
+        }
+        if ($time >= 3600) {
+            $value["hours"] = floor($time / 3600);
+            $time = ($time % 3600);
+        }
+        if ($time >= 60) {
+            $value["minutes"] = floor($time / 60);
+            $time = ($time % 60);
+        }
+        $value["seconds"] = floor($time);
+        echo '<span class="btime">' . $value['years'] . '年' . $value['days'] . '天</span>';
+    } else {
+        echo '';
+    }
 }

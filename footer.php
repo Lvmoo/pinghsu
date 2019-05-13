@@ -21,6 +21,8 @@
 		</div>
 	</div>
 	<div class="footer-meta">
+        <script type="text/javascript" src="https://api.lvmoo.com/hitokoto/?encode=js&charset=utf-8"></script>
+        <div id="lvmoohitokoto">❝<script>lvmoohitokoto()</script>❞</div>
 		<div class="footer-container">
 			<div class="meta-item meta-copyright">
 				<div class="meta-copyright-info">
@@ -32,8 +34,13 @@
                         <?php endif; ?>
                     </a>
 					<div class="info-text">
-                    	<p>Theme is <a href="https://github.com/chakhsu/pinghsu" target="_blank">Pinghsu</a> by <a href="https://www.linpx.com/" target="_blank">Chakhsu</a></p>
-						<p>Powered by <a href="http://www.typecho.org" target="_blank" rel="nofollow">Typecho</a></p>
+                        <p><?php if($this->options->builtTime): ?>博客诞生<?php getBuildTime($this->options->builtTime); ?><?php endif; ?></p>
+                        <p><?php if($this->options->icpbeian): ?>
+                            <a target="_blank" rel="noopener" href="http://www.miitbeian.gov.cn"><?php $this->options->icpbeian(); ?></a>
+                        <?php endif; ?></p>
+                        <p><?php if($this->options->gajbeian): ?>
+                            <a target="_blank" rel="noopener" href="<?php $this->options->gajbeianurl(); ?>"> <img src="https://cdn.lvmoo.com/gh.png" alt="国徽">  <?php $this->options->gajbeian(); ?> </a>
+                        <?php endif; ?></p>
 						<p>&copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a></p>
 					</div>
 				</div>
