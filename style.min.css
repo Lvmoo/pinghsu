@@ -1847,7 +1847,7 @@ input:-ms-input-placeholder,textarea:-ms-input-placeholder {
 	box-shadow: 0 1px 4px rgba(0,0,0,.04)
 }
 
-.comment-form .form-control {
+.comment-form .form-control , .c_textarea {
 	font-size: 13px;
 	display: block;
 	width: 100%;
@@ -1861,7 +1861,7 @@ input:-ms-input-placeholder,textarea:-ms-input-placeholder {
 	outline: 0
 }
 
-.comment-form textarea.form-control {
+.comment-form textarea.form-control , .c_textarea {
 	overflow: hidden;
 	height: 150px;
 	padding: 10px 0;

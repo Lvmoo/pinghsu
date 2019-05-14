@@ -79,21 +79,21 @@ $comments->alt(' comment-odd', ' comment-even');
             <input type="url" name="url" id="url" class="form-control input-control clearfix" placeholder="Site (http://)" value="" <?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?>>
             <?php endif; ?>
 
-            <textarea name="text" id="textarea" class="form-control" placeholder="Your comment here. Be cool. " required ><?php $this->remember('text',false); ?></textarea>
+            <textarea name="text" id="textarea" class="c_textarea" placeholder="Your comment here. Be cool. " required ><?php $this->remember('text',false); ?></textarea>
             <div class="OwO"></div>
-            <script src="<?php $this->options->themeUrl('js/OwO.min.js'); ?>"></script>
-            <script type="text/javascript" data-no-instant>
+                <script src="<?php $this->options->themeUrl('js/OwO.min.js'); ?>"></script>
+                <script type="text/javascript" data-no-instant>
                 var OwO = new OwO({
                     logo: 'OωO表情',
                     container: document.getElementsByClassName('OwO')[0],
-                    target: document.getElementsByClassName('form-control')[0],
+                    target: document.getElementsByClassName('c_textarea')[0],
                     api: 'https://cdn.lvmoo.com/dist/OwO.json',
                     position: 'down',
                     width: '100%',
                     maxHeight: '250px'
                     
                 });
-            </script>
+                </script>
             <button type="submit" class="submit" id="misubmit">SUBMIT</button>
             <?php $security = $this->widget('Widget_Security'); ?>
             <input type="hidden" name="_" value="<?php echo $security->getToken($this->request->getReferer())?>">
