@@ -82,7 +82,7 @@ $comments->alt(' comment-odd', ' comment-even');
             <textarea name="text" id="textarea" class="c_textarea" placeholder="Your comment here. Be cool. " required ><?php $this->remember('text',false); ?></textarea>
             <div class="OwO"></div>
                 <script src="<?php $this->options->themeUrl('js/OwO.min.js'); ?>"></script>
-                <script type="text/javascript" data-no-instant>
+                <script type="text/javascript">
                 var OwO = new OwO({
                     logo: 'OωO表情',
                     container: document.getElementsByClassName('OwO')[0],
